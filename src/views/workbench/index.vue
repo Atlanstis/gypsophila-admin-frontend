@@ -1,3 +1,3 @@
 <template>
-  <div>工作台</div>
+  <div class="flex">工作台</div>
 </template>
