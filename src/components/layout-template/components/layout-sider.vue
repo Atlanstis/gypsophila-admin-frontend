@@ -8,7 +8,7 @@
 import { computed } from 'vue';
 
 defineOptions({
-  name: 'AdminLayoutSider',
+  name: 'LayoutTemplteSider',
 });
 
 interface Props {

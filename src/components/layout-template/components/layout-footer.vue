@@ -8,7 +8,7 @@
 import { computed } from 'vue';
 
 defineOptions({
-  name: 'AdminLayoutFooter',
+  name: 'LayoutTemplteFooter',
 });
 
 interface Props {

@@ -8,7 +8,7 @@
 import { computed } from 'vue';
 
 defineOptions({
-  name: 'AdminLayoutContent',
+  name: 'LayoutTemplteContent',
 });
 
 interface Props {

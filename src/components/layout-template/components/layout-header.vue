@@ -23,7 +23,7 @@ interface Props {
 }
 
 defineOptions({
-  name: 'AdminLayoutHeader',
+  name: 'LayoutTemplteHeader',
 });
 const props = withDefaults(defineProps<Props>(), {
   fixed: true,
