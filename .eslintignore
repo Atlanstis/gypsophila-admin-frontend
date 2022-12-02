@@ -12,5 +12,3 @@ dist
 .local
 /bin
 Dockerfile
-
-src/typings/components.d.ts
