@@ -9,3 +9,4 @@
 5. [Naive UI](https://www.naiveui.com/zh-CN/light)：vue3 组件库；
 6. [unplugin-vue-components](https://github.com/antfu/unplugin-vue-components)：按需自动加载组件；
 7. [unplugin-vue-define-options](https://github.com/sxzz/unplugin-vue-macros/tree/main/packages/define-options#readme)：在 `<script setup>` 中使用 Options API，例如在一个函数中设置 `name`。
+8. [Pinia](https://pinia.vuejs.org/zh/index.html)：Vue Store；

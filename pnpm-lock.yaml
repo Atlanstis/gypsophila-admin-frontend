@@ -18,6 +18,7 @@ specifiers:
   husky: ^8.0.2
   lint-staged: ^13.0.4
   naive-ui: ^2.34.2
+  pinia: ^2.0.27
   prettier: ^2.8.0
   sass: ^1.56.1
   typescript: ^4.6.4
@@ -30,6 +31,7 @@ specifiers:
 
 dependencies:
   naive-ui: 2.34.2_vue@3.2.45
+  pinia: 2.0.27_mgnvym7yiazkylwwogi5r767ue
   vue: 3.2.45
   vue-router: 4.1.6_vue@3.2.45
 
@@ -2990,6 +2992,24 @@ packages:
     hasBin: true
     dev: true
 
+  /pinia/2.0.27_mgnvym7yiazkylwwogi5r767ue:
+    resolution: {integrity: sha512-nOnXP0OFeL8R4WjAHsterU+11vptda643gH02xKNtSCDPiRzVfRYodOLihLDoa0gL1KKuQKV+KOzEgdt3YvqEw==}
+    peerDependencies:
+      '@vue/composition-api': ^1.4.0
+      typescript: '>=4.4.4'
+      vue: ^2.6.14 || ^3.2.0
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+      typescript:
+        optional: true
+    dependencies:
+      '@vue/devtools-api': 6.4.5
+      typescript: 4.9.3
+      vue: 3.2.45
+      vue-demi: 0.13.11_vue@3.2.45
+    dev: false
+
   /postcss-selector-parser/6.0.11:
     resolution: {integrity: sha512-zbARubNdogI9j7WY4nQJBiNqQf3sLS3wCP4WfOidu+p28LofJqDH1tcXypGrcmMHhDk2t9wGhCsYe/+szLTy1g==}
     engines: {node: '>=4'}
@@ -3547,7 +3567,6 @@ packages:
     resolution: {integrity: sha512-CIfGzTelbKNEnLpLdGFgdyKhG23CKdKgQPOBc+OUNrkJ2vr+KSzsSV5kq5iWhEQbok+quxgGzrAtGWCyU7tHnA==}
     engines: {node: '>=4.2.0'}
     hasBin: true
-    dev: true
 
   /unconfig/0.3.7:
     resolution: {integrity: sha512-1589b7oGa8ILBYpta7TndM5mLHLzHUqBfhszeZxuUBrjO/RoQ52VGVWsS3w0C0GLNxO9RPmqkf6BmIvBApaRdA==}
@@ -3677,6 +3696,21 @@ packages:
       vue: ^3.0.0
     dependencies:
       evtd: 0.2.4
+      vue: 3.2.45
+    dev: false
+
+  /vue-demi/0.13.11_vue@3.2.45:
+    resolution: {integrity: sha512-IR8HoEEGM65YY3ZJYAjMlKygDQn25D5ajNFNoKh9RSDMQtlzCxtfQjdQgv9jjK+m3377SsJXY8ysq8kLCZL25A==}
+    engines: {node: '>=12'}
+    hasBin: true
+    requiresBuild: true
+    peerDependencies:
+      '@vue/composition-api': ^1.0.0-rc.1
+      vue: ^3.0.0-0 || ^2.6.0
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+    dependencies:
       vue: 3.2.45
     dev: false
 
