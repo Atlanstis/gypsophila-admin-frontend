@@ -5,3 +5,5 @@ export function setupStore(app: App<Element>) {
   const store = createPinia();
   app.use(store);
 }
+
+export * from './modules';
