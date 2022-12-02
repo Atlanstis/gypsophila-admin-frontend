@@ -4,6 +4,7 @@ import vue from '@vitejs/plugin-vue';
 import Unocss from '@unocss/vite';
 import Components from 'unplugin-vue-components/vite';
 import { NaiveUiResolver } from 'unplugin-vue-components/resolvers';
+import DefineOptions from 'unplugin-vue-define-options/vite';
 
 function pathResolve(dir: string) {
   return resolve(process.cwd(), '.', dir);
@@ -13,6 +14,7 @@ function pathResolve(dir: string) {
 export default defineConfig({
   plugins: [
     vue(),
+    DefineOptions(),
     Unocss(),
     Components({
       dts: 'src/typings/components.d.ts',
