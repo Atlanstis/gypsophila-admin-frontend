@@ -1,3 +1,5 @@
 <template>
-  <div class="flex">工作台</div>
+  <div class="flex">
+    <n-button>测试</n-button>
+  </div>
 </template>
