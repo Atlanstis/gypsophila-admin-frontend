@@ -12,3 +12,6 @@ dist
 .local
 /bin
 Dockerfile
+
+# unplugin-vue-components 自动生成的组件定义文件
+src/typings/components.d.ts
