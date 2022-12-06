@@ -5,6 +5,8 @@ import Unocss from '@unocss/vite';
 import Components from 'unplugin-vue-components/vite';
 import { NaiveUiResolver } from 'unplugin-vue-components/resolvers';
 import DefineOptions from 'unplugin-vue-define-options/vite';
+import Icons from 'unplugin-icons/vite';
+import IconsResolver from 'unplugin-icons/resolver';
 
 function pathResolve(dir: string) {
   return resolve(process.cwd(), '.', dir);
@@ -20,9 +22,11 @@ export default defineConfig({
       dts: 'src/typings/components.d.ts',
       dirs: ['src/components'],
       resolvers: [
-        NaiveUiResolver(), // 按需引入 Naive UI 的组件
+        NaiveUiResolver(), // 按需自动引入 Naive UI 的组件
+        IconsResolver({ prefix: 'icon' }), // 按需自动引入 图标组件
       ],
     }),
+    Icons({ compiler: 'vue3' }),
   ],
 
   server: {
