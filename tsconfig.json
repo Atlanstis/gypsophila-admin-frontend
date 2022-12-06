@@ -15,7 +15,11 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    "types": ["naive-ui/volar", "unplugin-vue-define-options/macros-global"]
+    "types": [
+      "naive-ui/volar",
+      "unplugin-vue-define-options/macros-global",
+      "unplugin-icons/types/vue"
+    ]
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
   "references": [{ "path": "./tsconfig.node.json" }]

@@ -7,6 +7,7 @@ import { NaiveUiResolver } from 'unplugin-vue-components/resolvers';
 import DefineOptions from 'unplugin-vue-define-options/vite';
 import Icons from 'unplugin-icons/vite';
 import IconsResolver from 'unplugin-icons/resolver';
+import { FileSystemIconLoader } from 'unplugin-icons/loaders';
 
 function pathResolve(dir: string) {
   return resolve(process.cwd(), '.', dir);
@@ -23,10 +24,16 @@ export default defineConfig({
       dirs: ['src/components'],
       resolvers: [
         NaiveUiResolver(), // 按需自动引入 Naive UI 的组件
-        IconsResolver({ prefix: 'icon' }), // 按需自动引入 图标组件
+        IconsResolver({ prefix: 'icon', customCollections: ['custom'] }), // 按需自动引入图标组件
       ],
     }),
-    Icons({ compiler: 'vue3' }),
+    Icons({
+      compiler: 'vue3',
+      scale: 1,
+      customCollections: {
+        custom: FileSystemIconLoader(pathResolve('src/assets/svg')),
+      },
+    }),
   ],
 
   server: {

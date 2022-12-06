@@ -11,11 +11,13 @@
 
 <script lang="ts" setup>
 import { dateZhCN, zhCN } from 'naive-ui';
-import { useThemeStore } from '@/store';
+import { useThemeStore, subscribeStore } from '@/store';
 
 defineOptions({
   name: 'AppView',
 });
 
 const theme = useThemeStore();
+
+subscribeStore();
 </script>

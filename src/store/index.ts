@@ -7,3 +7,4 @@ export function setupStore(app: App<Element>) {
 }
 
 export * from './modules';
+export * from './subscribe';
