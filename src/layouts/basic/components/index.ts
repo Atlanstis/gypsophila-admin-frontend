@@ -1,4 +1,4 @@
-export { default as Content } from './content/index.vue';
-export { default as Header } from './header/index.vue';
-export { default as Sider } from './sider/index.vue';
-export { default as Tab } from './tab/index.vue';
+export { default as BasicContent } from './content/index.vue';
+export { default as BasicHeader } from './header/index.vue';
+export { default as BasicSider } from './sider/index.vue';
+export { default as BasicTab } from './tab/index.vue';

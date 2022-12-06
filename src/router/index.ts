@@ -1,10 +1,12 @@
 import type { App } from 'vue';
+import type { RouteRecordRaw } from 'vue-router';
 import { createRouter, createWebHashHistory } from 'vue-router';
 
-const routes = [
+const routes: RouteRecordRaw[] = [
   {
     path: '/',
     component: () => import('@/layouts/basic/index.vue'),
+    redirect: '/workbench',
     children: [
       {
         path: '/workbench',
