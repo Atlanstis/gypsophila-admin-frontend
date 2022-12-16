@@ -37,7 +37,6 @@ export function transformAuthRouteToVueRoute(item: AuthRoute.Route) {
       },
       multi: () => {
         // TODO
-        console.log('todo');
       },
       self: () => {
         itemRoute.component = getViewComponent(item.name as RoutePage.LastDegreeRouteKey);
@@ -45,8 +44,8 @@ export function transformAuthRouteToVueRoute(item: AuthRoute.Route) {
     };
     try {
       action[item.component]();
-    } catch {
-      window.console.error('路由组件解析失败: ', item);
+    } catch (e) {
+      window.console.error('路由组件解析失败: ', e, item);
     }
   }
 
@@ -79,6 +78,26 @@ export function transformAuthRouteToVueRoute(item: AuthRoute.Route) {
 
       return [parentRoute];
     }
+  }
+
+  // 解析多层路由
+  if (hasChildren(item)) {
+    const children = (item.children as AuthRoute.Route[])
+      .map((child) => transformAuthRouteToVueRoute(child))
+      .flat();
+    // 找出第一个不为多级路由中间级的子路由路径作为重定向路径
+    const redirectPath = (children.find((v) => !v.meta?.multi)?.path || '/') as AuthRoute.RoutePath;
+
+    if (redirectPath === '/') {
+      window.console.error('该多级路由没有有效的子路径', item);
+    }
+
+    if (item.component === 'multi') {
+      // TODO
+    } else {
+      itemRoute.children = children;
+    }
+    itemRoute.redirect = redirectPath;
   }
   routes.push(itemRoute);
   return routes;

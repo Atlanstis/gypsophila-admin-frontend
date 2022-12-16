@@ -6,8 +6,11 @@ declare namespace RoutePage {
   type NotFoundRouteKey = 'not-found';
 
   /** 页面路由 */
-  type RouteKey = 'login' | NotFoundRouteKey | 'workbench';
+  type RouteKey = 'login' | NotFoundRouteKey | 'workbench' | 'playstation' | 'playstation_trophy';
 
   /** 最后一级路由(该级路有对应的vue文件) */
-  type LastDegreeRouteKey = Extract<RouteKey, NotFoundRouteKey | 'login' | 'workbench'>;
+  type LastDegreeRouteKey = Extract<
+    RouteKey,
+    NotFoundRouteKey | 'login' | 'workbench' | 'playstation_trophy'
+  >;
 }

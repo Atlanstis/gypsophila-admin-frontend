@@ -7,4 +7,5 @@ export const views: Record<
   login: () => import('./_system/login/index.vue'),
   'not-found': () => import('./_system/not-found/index.vue'),
   workbench: () => import('./workbench/index.vue'),
+  playstation_trophy: () => import('./playstation/trophy/index.vue'),
 };

@@ -10,6 +10,9 @@ declare namespace AuthRoute {
   type RouteKey = RoutePage.RouteKey;
   type AllRouteKey = RouteKey | RootRouteKey | NotFoundRouteKey;
 
+  /** 路由路径 */
+  type RoutePath<K extends AllRouteKey = AllRouteKey> = AuthRouteUtils.GetRoutePath<K>;
+
   /**
    * 路由布局类型
    * - basic - 基础布局，具有公共部分的布局

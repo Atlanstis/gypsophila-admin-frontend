@@ -28,6 +28,24 @@ export const constantRoutes: AuthRoute.Route[] = [
       singleLayout: 'basic',
     },
   },
+  {
+    name: 'playstation',
+    path: '/playstation',
+    component: 'basic',
+    meta: {
+      title: 'PlayStation',
+    },
+    children: [
+      {
+        name: 'playstation_trophy',
+        path: '/playstation/trophy',
+        component: 'self',
+        meta: {
+          title: '奖杯',
+        },
+      },
+    ],
+  },
   // 匹配无效路径的路由
   {
     name: 'not-found',
