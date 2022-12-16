@@ -20,8 +20,36 @@ defineOptions({
 
 const menus = [
   {
-    label: '且听风吟',
-    key: 'hear-the-wind-sing',
+    label: '工作台',
+    key: 'workbench',
+  },
+  {
+    label: 'PlayStation',
+    key: 'playstation',
+    children: [
+      {
+        label: '奖杯',
+        key: 'trophy',
+      },
+      {
+        label: 'PSNINE',
+        key: 'psnine',
+      },
+    ],
+  },
+  {
+    label: '可视化',
+    key: 'visualization',
+    children: [
+      {
+        label: 'Echarts',
+        key: 'echarts',
+      },
+    ],
+  },
+  {
+    label: '关于',
+    key: 'about',
   },
 ];
 

@@ -16,13 +16,14 @@
     <template #tab>
       <BasicTab />
     </template>
-    <BasicContent />
+    <ScrollContent />
   </LayoutTemplate>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { BasicContent, BasicHeader, BasicSider, BasicTab } from './components';
+import { BasicHeader, BasicSider, BasicTab } from './components';
+import { ScrollContent } from '../components';
 import { useThemeStore, useAppStore } from '@/store';
 
 defineOptions({

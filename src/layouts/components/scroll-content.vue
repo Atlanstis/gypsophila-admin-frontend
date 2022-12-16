@@ -1,6 +1,6 @@
 <template>
   <NScrollbar class="h-full bg-[#f6f9f8]">
-    <div class="p-16px">
+    <div :class="{ 'p-16px': showPadding }">
       <routerView v-slot="{ Component, route }">
         <transition :name="'fade-slide'" mode="out-in" :appear="true">
           <component :is="Component" :key="route.fullPath" />
@@ -12,7 +12,15 @@
 
 <script lang="ts" setup>
 defineOptions({
-  name: 'BasicContent',
+  name: 'ScrollContent',
+});
+
+interface Props {
+  showPadding?: boolean;
+}
+
+withDefaults(defineProps<Props>(), {
+  showPadding: true,
 });
 </script>
 

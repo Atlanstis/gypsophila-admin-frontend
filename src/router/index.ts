@@ -1,25 +1,10 @@
 import type { App } from 'vue';
-import type { RouteRecordRaw } from 'vue-router';
 import { createRouter, createWebHashHistory } from 'vue-router';
+import { constantRoutes } from './routes';
+import { transformAuthRouteToVueRoutes } from '@/utils';
 
-const routes: RouteRecordRaw[] = [
-  {
-    path: '/',
-    component: () => import('@/layouts/basic/index.vue'),
-    redirect: '/workbench',
-    children: [
-      {
-        path: '/workbench',
-        name: 'workbench',
-        component: () => import('@/views/workbench/index.vue'),
-        meta: {
-          title: '工作台',
-        },
-      },
-    ],
-  },
-];
-
+const routes = transformAuthRouteToVueRoutes(constantRoutes);
+console.log(routes);
 const router = createRouter({
   history: createWebHashHistory(),
   routes,

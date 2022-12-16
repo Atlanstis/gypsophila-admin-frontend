@@ -98,7 +98,7 @@ const props = withDefaults(defineProps<Props>(), {
   tabVisible: true,
   tabHeight: 44,
   fixedHeaderAndTab: true,
-  footerVisible: true,
+  footerVisible: false,
   footerHeight: 48,
   fixedFooter: true,
   siderVisible: true,
@@ -110,7 +110,7 @@ const props = withDefaults(defineProps<Props>(), {
 });
 
 interface Emits {
-  (e: 'update:sider-collapse', collapse: boolean): void;
+  (_e: 'update:sider-collapse', _collapse: boolean): void;
 }
 
 const emit = defineEmits<Emits>();
