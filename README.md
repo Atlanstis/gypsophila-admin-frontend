@@ -30,3 +30,4 @@
 
 1. [colord](https://github.com/omgovich/colord)：颜色处理工具；
 2. [lodash-es](https://lodash.com/docs/4.17.15)：函数工具库；
+3. [@vueuse/core](https://github.com/vueuse/vueuse#readme)：Vue Composition 应用。
