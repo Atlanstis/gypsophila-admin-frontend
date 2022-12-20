@@ -5,6 +5,8 @@ const route: AuthRoute.Route = {
   meta: {
     title: '工作台',
     singleLayout: 'basic',
+    icon: 'icon-park-outline:workbench',
+    order: 1,
   },
 };
 

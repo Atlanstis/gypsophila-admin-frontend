@@ -4,6 +4,8 @@ const route: AuthRoute.Route = {
   component: 'basic',
   meta: {
     title: 'PlayStation',
+    localIcon: 'playstation',
+    order: 2,
   },
   children: [
     {
@@ -12,6 +14,7 @@ const route: AuthRoute.Route = {
       component: 'self',
       meta: {
         title: '奖杯',
+        localIcon: 'trophy',
       },
     },
   ],

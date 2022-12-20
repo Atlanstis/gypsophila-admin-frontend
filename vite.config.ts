@@ -8,10 +8,13 @@ import DefineOptions from 'unplugin-vue-define-options/vite';
 import Icons from 'unplugin-icons/vite';
 import IconsResolver from 'unplugin-icons/resolver';
 import { FileSystemIconLoader } from 'unplugin-icons/loaders';
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
 
 function pathResolve(dir: string) {
   return resolve(process.cwd(), '.', dir);
 }
+
+const localIconPath = `${pathResolve('src/assets/svg')}`;
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -31,8 +34,14 @@ export default defineConfig({
       compiler: 'vue3',
       scale: 1,
       customCollections: {
-        custom: FileSystemIconLoader(pathResolve('src/assets/svg')),
+        custom: FileSystemIconLoader(localIconPath),
       },
+    }),
+    createSvgIconsPlugin({
+      iconDirs: [localIconPath],
+      symbolId: `custom-[dir]-[name]`,
+      inject: 'body-last',
+      customDomId: '__SVG_ICON_LOCAL__',
     }),
   ],
 

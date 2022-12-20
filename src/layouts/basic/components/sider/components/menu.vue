@@ -12,49 +12,18 @@
 </template>
 
 <script lang="ts" setup>
-import { useAppStore, useThemeStore } from '@/store';
+import { useAppStore, useThemeStore, useRouteStore } from '@/store';
+import { computed } from 'vue';
 
 defineOptions({
   name: 'SiderMenu',
 });
 
-const menus = [
-  {
-    label: '工作台',
-    key: 'workbench',
-  },
-  {
-    label: 'PlayStation',
-    key: 'playstation',
-    children: [
-      {
-        label: '奖杯',
-        key: 'trophy',
-      },
-      {
-        label: 'PSNINE',
-        key: 'psnine',
-      },
-    ],
-  },
-  {
-    label: '可视化',
-    key: 'visualization',
-    children: [
-      {
-        label: 'Echarts',
-        key: 'echarts',
-      },
-    ],
-  },
-  {
-    label: '关于',
-    key: 'about',
-  },
-];
-
 const app = useAppStore();
 const { sider } = useThemeStore();
+const routeStore = useRouteStore();
+
+const menus = computed(() => routeStore.menus as App.AdminMenuOption[]);
 </script>
 
 <style lang="scss" scoped></style>

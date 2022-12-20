@@ -39,6 +39,10 @@ declare namespace AuthRoute {
     icon?: string;
     /** 使用本地svg作为的菜单和面包屑对应的图标(src/assets/svg文件夹的的svg文件名) */
     localIcon?: string;
+    /** 是否在菜单中隐藏 */
+    hide?: boolean;
+    /** 路由顺序，可用于菜单的排序 */
+    order?: number;
   }
 
   type Route<K extends AllRouteKey = AllRouteKey> = K extends AllRouteKey

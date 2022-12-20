@@ -25,6 +25,8 @@
 8. [Pinia](https://pinia.vuejs.org/zh/index.html)：Vue Store；
 
 9. [unplugin-icons](https://github.com/antfu/unplugin-icons)：将图标转换为组件方式，支持自定义图标及 [icones](https://icones.js.org/) 图标；
+10. [@iconify/vue](https://www.npmjs.com/package/@iconify/vue)：vue 渲染 icones 组件。
+11. [vite-plugin-svg-icons](https://github.com/vbenjs/vite-plugin-svg-icons/blob/main/README.zh_CN.md)：生成 svg 雪碧图。
 
 ## 工具库
 

@@ -48,3 +48,15 @@ declare namespace Theme {
     height: number;
   }
 }
+
+declare namespace App {
+  /** 菜单项配置 */
+  type AdminMenuOption = import('naive-ui').MenuOption & {
+    key: string;
+    label: string;
+    routeName: string;
+    routePath: string;
+    icon?: () => import('vue').VNodeChild;
+    children?: AdminMenuOption[];
+  };
+}
