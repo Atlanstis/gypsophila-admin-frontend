@@ -8,6 +8,8 @@ export default defineConfig({
     'flex-center': 'flex justify-center items-center',
     'flex-col': 'flex flex-col',
     'flex-1-hidden': 'flex-1 overflow-hidden',
+    'flex-x-center': 'flex justify-center',
+    'flex-y-center': 'flex items-center',
   },
   theme: {
     colors: {

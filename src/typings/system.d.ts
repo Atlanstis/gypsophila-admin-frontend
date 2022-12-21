@@ -59,4 +59,13 @@ declare namespace App {
     icon?: () => import('vue').VNodeChild;
     children?: AdminMenuOption[];
   };
+
+  /** 面包屑 */
+  type AdminBreadcrumb = import('naive-ui').DropdownOption & {
+    key: string;
+    label: string;
+    routeName: string;
+    hasChildren: boolean;
+    children?: GlobalBreadcrumb[];
+  };
 }

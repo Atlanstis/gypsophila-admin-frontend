@@ -137,3 +137,17 @@ function isSingleRoute(
 ): singleLayout is AuthRoute.RouteLayoutType {
   return Boolean(singleLayout);
 }
+
+/** 将路由名字转换成路由路径 */
+export function transformRouteNameToRoutePath(
+  name: Exclude<AuthRoute.AllRouteKey, 'not-found'>,
+): AuthRoute.RoutePath {
+  const rootPath: AuthRoute.RoutePath = '/';
+  if (name === 'root') return rootPath;
+
+  const splitMark = '_';
+  const pathSplitMark = '/';
+  const path = name.split(splitMark).join(pathSplitMark);
+
+  return (pathSplitMark + path) as AuthRoute.RoutePath;
+}
