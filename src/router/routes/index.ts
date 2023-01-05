@@ -2,7 +2,7 @@
 export const ROOT_ROUTE: AuthRoute.Route = {
   name: 'root',
   path: '/',
-  redirect: '/login',
+  redirect: '/workbench',
   meta: {
     title: 'Root',
   },

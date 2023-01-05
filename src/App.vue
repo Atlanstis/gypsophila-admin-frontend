@@ -12,6 +12,7 @@
 <script lang="ts" setup>
 import { dateZhCN, zhCN } from 'naive-ui';
 import { useThemeStore, subscribeStore } from '@/store';
+import { useGlobalEvents } from '@/composables';
 
 defineOptions({
   name: 'AppView',
@@ -20,4 +21,5 @@ defineOptions({
 const theme = useThemeStore();
 
 subscribeStore();
+useGlobalEvents();
 </script>

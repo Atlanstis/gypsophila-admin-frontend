@@ -1,5 +1,5 @@
 import { h } from 'vue';
-import SvgIcon from '@/components/svg-icon.vue';
+import SvgIcon from '@/components/common/svg-icon.vue';
 
 /**
  * 图标渲染

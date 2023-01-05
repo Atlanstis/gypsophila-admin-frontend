@@ -16,6 +16,7 @@ const defaultThemeSetting: Theme.Setting = {
   },
   tab: {
     height: 44,
+    isCache: true,
   },
 };
 

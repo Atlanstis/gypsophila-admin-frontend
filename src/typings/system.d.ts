@@ -46,6 +46,8 @@ declare namespace Theme {
   export interface Tab {
     /** 标签高度 */
     height: number;
+    /** 开启多页签缓存 */
+    isCache: boolean;
   }
 }
 
@@ -68,4 +70,14 @@ declare namespace App {
     hasChildren: boolean;
     children?: GlobalBreadcrumb[];
   };
+
+  /** 多页签Tab的路由 */
+  interface AdminTabRoute
+    extends Pick<import('vue-router').RouteLocationNormalizedLoaded, 'name' | 'fullPath' | 'meta'> {
+    /** 滚动的位置 */
+    scrollPosition: {
+      left: number;
+      top: number;
+    };
+  }
 }
