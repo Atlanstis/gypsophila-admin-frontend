@@ -8,7 +8,9 @@
       :width="sider.width"
       :options="menus"
       :indent="sider.indent"
+      :expanded-keys="expandedKeys"
       @update:value="handleUpdateMenu"
+      @update:expanded-keys="handleUpdateExpandedKeys"
     ></NMenu>
   </NScrollbar>
 </template>
@@ -16,9 +18,10 @@
 <script lang="ts" setup>
 import { useAppStore, useThemeStore, useRouteStore } from '@/store';
 import type { MenuOption } from 'naive-ui';
-import { computed } from 'vue';
+import { computed, ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import { useRouterPush } from '@/composables';
+import { getActiveKeyPathsOfMenus } from '@/utils';
 
 defineOptions({
   name: 'SiderMenu',
@@ -45,6 +48,23 @@ function handleUpdateMenu(key: string, item: MenuOption) {
   const menuItem = item as App.AdminMenuOption;
   routerPush(menuItem.routePath);
 }
+
+const expandedKeys = ref<string[]>([]);
+
+/**
+ * 处理菜单折叠状态
+ */
+function handleUpdateExpandedKeys(keys: string[]) {
+  expandedKeys.value = keys;
+}
+
+watch(
+  () => route.name,
+  () => {
+    expandedKeys.value = getActiveKeyPathsOfMenus(activeKey.value, menus.value);
+  },
+  { immediate: true },
+);
 </script>
 
 <style lang="scss" scoped></style>

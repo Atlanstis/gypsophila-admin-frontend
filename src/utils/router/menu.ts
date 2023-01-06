@@ -65,3 +65,28 @@ function addPartialProps(config: {
   }
   return item;
 }
+
+/**
+ * 获取当前路由所在菜单数据的paths
+ * @param activeKey - 当前路由的key
+ * @param menus - 菜单数据
+ */
+export function getActiveKeyPathsOfMenus(activeKey: string, menus: App.AdminMenuOption[]) {
+  const keys = menus.map((menu) => getActiveKeyPathsOfMenu(activeKey, menu)).flat(1);
+  return keys;
+}
+
+function getActiveKeyPathsOfMenu(activeKey: string, menu: App.AdminMenuOption) {
+  const keys: string[] = [];
+  if (activeKey.includes(menu.routeName)) {
+    keys.push(menu.routeName);
+  }
+  if (menu.children) {
+    keys.push(
+      ...menu.children
+        .map((item) => getActiveKeyPathsOfMenu(activeKey, item as App.AdminMenuOption))
+        .flat(1),
+    );
+  }
+  return keys;
+}
