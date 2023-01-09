@@ -26,6 +26,7 @@ specifiers:
   lint-staged: ^13.0.4
   lodash-es: ^4.17.21
   naive-ui: ^2.34.2
+  perlin.js: ^1.0.0
   pinia: ^2.0.27
   prettier: ^2.8.0
   sass: ^1.56.1
@@ -47,6 +48,7 @@ dependencies:
   crypto-js: 4.1.1
   lodash-es: 4.17.21
   naive-ui: 2.34.2_vue@3.2.45
+  perlin.js: 1.0.0
   pinia: 2.0.27_mgnvym7yiazkylwwogi5r767ue
   vfonts: 0.1.0
   vue: 3.2.45
@@ -3770,6 +3772,10 @@ packages:
   /pathe/0.3.9:
     resolution: {integrity: sha512-6Y6s0vT112P3jD8dGfuS6r+lpa0qqNrLyHPOwvXMnyNTQaYiwgau2DP3aNDsR13xqtGj7rrPo+jFUATpU6/s+g==}
     dev: true
+
+  /perlin.js/1.0.0:
+    resolution: {integrity: sha512-0MVPmdJDH6GjDoa0hOTboFTPNZeJXhFRlsyEi1GPEVke0vhF1zVrtfEaQ3hH7M2NB5+V0rCPOGWjkBksQhZB4A==}
+    dev: false
 
   /picocolors/1.0.0:
     resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==}

@@ -1,5 +1,5 @@
 <template>
-  <ScrollContent :show-padding="false"></ScrollContent>
+  <ScrollContent :show-padding="false" :is-full="true"></ScrollContent>
 </template>
 
 <script lang="ts" setup>
