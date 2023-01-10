@@ -5,9 +5,9 @@
     class="h-full"
     :theme-overrides="theme.naiveThemeOverrides"
   >
-    <naive-provider>
+    <NaiveProvider>
       <router-view />
-    </naive-provider>
+    </NaiveProvider>
   </n-config-provider>
 </template>
 

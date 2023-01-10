@@ -1,12 +1,17 @@
 <template>
-  <div class="basic-header h-full flex-y-center">
-    <CollapseIcon />
-    <Breadcrumb />
+  <div class="basic-header h-full flex">
+    <div class="flex-1-hidden flex flex-y-center h-full">
+      <CollapseIcon />
+      <Breadcrumb />
+    </div>
+    <div class="flex justify-end h-full">
+      <UserAvatar />
+    </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { CollapseIcon, Breadcrumb } from './components';
+import { CollapseIcon, Breadcrumb, UserAvatar } from './components';
 
 defineOptions({
   name: 'BasicHeader',
