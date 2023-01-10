@@ -40,9 +40,9 @@ export async function createDynamicRouteGuard(
     }
   }
 
-  // 权限路由已经加载，仍然未找到，重定向到404
+  // 权限路由已经加载，仍然未找到，显示未匹配路由对应的页面
   if (to.name === routeName('not-found')) {
-    next({ name: routeName('not-found'), replace: true });
+    next();
     return false;
   }
   return true;
