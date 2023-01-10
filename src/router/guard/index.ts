@@ -9,11 +9,13 @@ import { useAppStore } from '@/store';
  */
 export function createRouterGuard(router: Router) {
   router.beforeEach(async (to, from, next) => {
+    window.$loadingBar?.start();
     await createPermissionGuard(to, from, next);
   });
 
   router.afterEach((to) => {
     const app = useAppStore();
     useTitle(`${to.meta.title} - ✨${app.name}✨`);
+    window.$loadingBar?.finish();
   });
 }
