@@ -9,7 +9,6 @@ specifiers:
   '@typescript-eslint/eslint-plugin': ^5.45.0
   '@typescript-eslint/parser': ^5.45.0
   '@unocss/preset-uno': ^0.47.4
-  '@unocss/reset': ^0.47.4
   '@unocss/vite': ^0.47.4
   '@vitejs/plugin-vue': ^3.2.0
   '@vueuse/core': ^9.7.0
@@ -62,7 +61,6 @@ devDependencies:
   '@typescript-eslint/eslint-plugin': 5.45.0_czs5uoqkd3podpy6vgtsxfc7au
   '@typescript-eslint/parser': 5.45.0_hsf322ms6xhhd4b5ne6lb74y4a
   '@unocss/preset-uno': 0.47.4
-  '@unocss/reset': 0.47.4
   '@unocss/vite': 0.47.4_vite@3.2.4
   '@vitejs/plugin-vue': 3.2.0_vite@3.2.4+vue@3.2.45
   commitizen: 4.2.5
@@ -766,10 +764,6 @@ packages:
     dependencies:
       '@unocss/core': 0.47.4
       '@unocss/preset-mini': 0.47.4
-    dev: true
-
-  /@unocss/reset/0.47.4:
-    resolution: {integrity: sha512-5AnzQRxlsfkktp5ctFdZA4jtEDLpt7ERpxGlPswTrrs1/oPT5Erco532jUh4TZ7BvHE3ZPRYEEy79HuFLUc5vQ==}
     dev: true
 
   /@unocss/scope/0.47.4:

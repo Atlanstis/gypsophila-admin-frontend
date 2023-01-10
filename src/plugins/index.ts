@@ -1,6 +1,5 @@
 import type { App } from 'vue';
 import 'virtual:svg-icons-register';
-import '@unocss/reset/tailwind.css';
 import 'uno.css';
 import 'vfonts/FiraSans.css';
 import '@/styles/index.scss';

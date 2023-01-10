@@ -1,6 +1,7 @@
 import type { Router } from 'vue-router';
 import { useTitle } from '@vueuse/core';
 import { createPermissionGuard } from './permission';
+import { useAppStore } from '@/store';
 
 /**
  * 路由守卫函数
@@ -12,6 +13,7 @@ export function createRouterGuard(router: Router) {
   });
 
   router.afterEach((to) => {
-    useTitle(`${to.meta.title} - ✨Gypsophila.✨`);
+    const app = useAppStore();
+    useTitle(`${to.meta.title} - ✨${app.name}✨`);
   });
 }

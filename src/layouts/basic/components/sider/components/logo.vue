@@ -3,7 +3,7 @@
     <icon-custom-logo class="text-32px color-primary" />
     <Transition name="fade">
       <h2 v-if="!app.siderCollapse" class="color-primary text-16px font-bold ml-6px">
-        Gypsophila.
+        {{ app.name }}
       </h2>
     </Transition>
   </div>
