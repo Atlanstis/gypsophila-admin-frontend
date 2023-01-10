@@ -1,10 +1,11 @@
 import { defineStore } from 'pinia';
-import { routes as staticRoutes, router, ROOT_ROUTE } from '@/router';
+import { routes as staticRoutes, router, ROOT_ROUTE, constantRoutes } from '@/router';
 import {
   transformAuthRouteToMenu,
   transformAuthRouteToVueRoute,
   transformAuthRouteToVueRoutes,
   transformRouteNameToRoutePath,
+  getConstantRouteNames,
 } from '@/utils';
 import { useTabStore } from '../tab';
 
@@ -60,6 +61,16 @@ export const useRouteStore = defineStore('route-store', {
       router.removeRoute(rootRouteName);
       const rootVueRoute = transformAuthRouteToVueRoute(rootRoute)[0];
       router.addRoute(rootVueRoute);
+    },
+
+    /**
+     * 是否是有效的固定路由
+     * @param name 路由名称
+     */
+    isValidConstantRoute(name: AuthRoute.AllRouteKey) {
+      const NOT_FOUND_PAGE_NAME: AuthRoute.NotFoundRouteKey = 'not-found';
+      const constantRouteNames = getConstantRouteNames(constantRoutes);
+      return constantRouteNames.includes(name) && name !== NOT_FOUND_PAGE_NAME;
     },
   },
 });

@@ -1,4 +1,4 @@
-import { router as globalRouter } from '@/router';
+import { routeName, router as globalRouter } from '@/router';
 import type { RouteLocationRaw } from 'vue-router';
 import { useRouter } from 'vue-router';
 /**
@@ -7,7 +7,7 @@ import { useRouter } from 'vue-router';
  */
 export function useRouterPush(inSetup = true) {
   const router = inSetup ? useRouter() : globalRouter;
-
+  const route = globalRouter.currentRoute;
   /**
    * 路由跳转
    * @param to - 需要跳转的路由
@@ -22,7 +22,29 @@ export function useRouterPush(inSetup = true) {
     }
   }
 
+  /**
+   * 登录成功后跳转重定向的地址
+   */
+  function toLoginRedirect() {
+    const { query } = route.value;
+    if (query?.redirect) {
+      routerPush(query.redirect as string);
+    } else {
+      toHome();
+    }
+  }
+
+  /**
+   * 跳转首页
+   * @param newTab - 在新的浏览器标签打开
+   */
+  function toHome(newTab = false) {
+    routerPush({ name: routeName('root') }, newTab);
+  }
+
   return {
+    toHome,
     routerPush,
+    toLoginRedirect,
   };
 }

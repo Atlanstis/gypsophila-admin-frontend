@@ -4,9 +4,9 @@
       <icon-custom-logo class="text-40px color-primary" />
       <h2 class="color-primary text-20px font-bold ml-6px">{{ app.name }}</h2>
     </div>
-    <NForm ref="formRef" :model="form" :show-label="false">
-      <NFormItem path="userName">
-        <NInput v-model:value="form.userName" placeholder="请输入用户名">
+    <NForm ref="formRef" :model="form" :rules="rules" :show-label="false">
+      <NFormItem path="username">
+        <NInput v-model:value="form.username" placeholder="请输入用户名">
           <template #prefix>
             <icon-line-md-account class="text-16px" />
           </template>
@@ -26,7 +26,7 @@
       </NFormItem>
       <div class="justify-between flex-y-center">
         <n-checkbox v-model:checked="rememberMe">记住我</n-checkbox>
-        <n-button type="primary" :loading="loginLoading" @click="goLoginHandle">登录</n-button>
+        <n-button type="primary" :loading="auth.loginLoading" @click="goLoginHandle">登录</n-button>
       </div>
     </NForm>
   </div>
@@ -34,32 +34,44 @@
 
 <script lang="ts" setup>
 import { reactive, ref } from 'vue';
-import { useBoolean } from '@/hooks';
-import { useAppStore } from '@/store';
+import { useAppStore, useAuthStore } from '@/store';
+import type { FormInst, FormRules } from 'naive-ui';
 
 defineOptions({
   name: 'LoginForm',
 });
 
 const app = useAppStore();
+const auth = useAuthStore();
+
+const formRef = ref<HTMLElement & FormInst>();
 
 const form = reactive({
-  userName: '',
-  password: '',
+  username: 'admin',
+  password: 'gypsophila',
 });
 
-const rememberMe = ref(false);
-const {
-  bool: loginLoading,
-  setTrue: setLoginLoadingTrue,
-  setFalse: setLoginLoadingFalse,
-} = useBoolean(false);
+const rules: FormRules = {
+  username: {
+    required: true,
+    message: '请输入用户名',
+    trigger: 'blur',
+  },
+  password: {
+    required: true,
+    message: '请输入密码',
+    trigger: 'blur',
+  },
+};
 
-function goLoginHandle() {
-  setLoginLoadingTrue();
-  setTimeout(() => {
-    setLoginLoadingFalse();
-  }, 1000);
+const rememberMe = ref(false);
+
+async function goLoginHandle() {
+  try {
+    await formRef.value?.validate();
+    const { username, password } = form;
+    auth.login(username, password);
+  } catch (error) {}
 }
 </script>
 

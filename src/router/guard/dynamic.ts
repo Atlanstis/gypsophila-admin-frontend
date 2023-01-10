@@ -1,5 +1,5 @@
 import type { NavigationGuardNext, RouteLocationNormalized } from 'vue-router';
-import { useRouteStore } from '@/store';
+import { useRouteStore, useAuthStore } from '@/store';
 import { routeName } from '@/router';
 
 /**
@@ -11,9 +11,22 @@ export async function createDynamicRouteGuard(
   next: NavigationGuardNext,
 ) {
   const route = useRouteStore();
+  const { isLogin } = useAuthStore();
 
   // 初始化权限路由
   if (!route.isInitAuthRoute) {
+    // 未登录情况下直接回到登录页，登录成功后再加载权限路由
+    if (!isLogin) {
+      const toName = to.name as AuthRoute.AllRouteKey;
+      if (route.isValidConstantRoute(toName)) {
+        next();
+      } else {
+        const redirect = to.fullPath;
+        next({ name: routeName('login'), query: { redirect } });
+      }
+      return false;
+    }
+
     // 加载路由
     await route.initAuthRoute();
 

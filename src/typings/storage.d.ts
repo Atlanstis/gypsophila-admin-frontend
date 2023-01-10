@@ -3,5 +3,7 @@ declare namespace StorageInterface {
   interface Local {
     /** 多页签路由信息 */
     multiTabRoutes: App.GlobalTabRoute[];
+    /** 用户凭证 */
+    token: string;
   }
 }

@@ -3,3 +3,4 @@ export * from './component';
 export * from './module';
 export * from './menu';
 export * from './breadcrumb';
+export * from './constant-routes';
