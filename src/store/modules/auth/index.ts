@@ -1,9 +1,10 @@
+import { defineStore } from 'pinia';
 import { useRouterPush } from '@/composables';
 import { fetchLogin } from '@/service';
-import { useRouteStore } from '@/store';
+import { useRouteStore, useTabStore } from '@/store';
 import { localStg } from '@/utils';
-import { defineStore } from 'pinia';
-import { getToken } from './helper';
+import { clearAuthStorage, getToken } from './helper';
+import { nextTick } from 'vue';
 
 interface AuthState {
   /** 用户凭证 */
@@ -28,6 +29,23 @@ export const useAuthStore = defineStore('auth-store', {
   },
 
   actions: {
+    /** 重置auth状态 */
+    resetAuthStore() {
+      const { toLogin } = useRouterPush(false);
+      const { resetTabStore } = useTabStore();
+      const { resetRouteStore } = useRouteStore();
+
+      clearAuthStorage();
+      this.$reset();
+
+      toLogin();
+
+      nextTick(() => {
+        resetTabStore();
+        resetRouteStore();
+      });
+    },
+
     /** 账号密码登录
      * @param username -账号
      * @param password -密码

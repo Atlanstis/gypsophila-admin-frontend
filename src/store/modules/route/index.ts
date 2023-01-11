@@ -22,6 +22,22 @@ export const useRouteStore = defineStore('route-store', {
     menus: [],
   }),
   actions: {
+    /** 重置路由的store */
+    resetRouteStore() {
+      this.resetRoutes();
+      this.$reset();
+    },
+    /** 重置路由数据，保留固定路由 */
+    resetRoutes() {
+      const routes = router.getRoutes();
+      routes.forEach((route) => {
+        const name = (route.name || 'root') as AuthRoute.AllRouteKey;
+        if (!this.isConstantRoute(name)) {
+          router.removeRoute(name);
+        }
+      });
+    },
+
     /** 初始化路由 */
     async initAuthRoute() {
       this.handleAuthRoute(staticRoutes);
@@ -71,6 +87,15 @@ export const useRouteStore = defineStore('route-store', {
       const NOT_FOUND_PAGE_NAME: AuthRoute.NotFoundRouteKey = 'not-found';
       const constantRouteNames = getConstantRouteNames(constantRoutes);
       return constantRouteNames.includes(name) && name !== NOT_FOUND_PAGE_NAME;
+    },
+
+    /**
+     * 是否是固定路由
+     * @param name 路由名称
+     */
+    isConstantRoute(name: AuthRoute.AllRouteKey) {
+      const constantRouteNames = getConstantRouteNames(constantRoutes);
+      return constantRouteNames.includes(name);
     },
   },
 });

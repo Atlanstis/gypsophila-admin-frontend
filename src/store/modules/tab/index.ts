@@ -8,6 +8,7 @@ import {
   getIndexInTabRoutes,
   getIndexInTabRoutesByRouteName,
   isInTabRoutes,
+  clearTabRoutes,
 } from './helpers';
 import { useRouterPush } from '@/composables';
 
@@ -45,6 +46,11 @@ export const useTabStore = defineStore('tab-store', {
   },
 
   actions: {
+    /** 重置Tab状态 */
+    resetTabStore() {
+      clearTabRoutes();
+      this.$reset();
+    },
     /**
      * 添加多页签
      * @param route - 路由

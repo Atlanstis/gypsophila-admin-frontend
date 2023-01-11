@@ -10,10 +10,13 @@
 <script lang="ts" setup>
 import type { DropdownOption } from 'naive-ui';
 import { useIconRender } from '@/composables';
+import { useAuthStore } from '@/store';
 
 defineOptions({
   name: 'UserAvatar',
 });
+
+const auth = useAuthStore();
 
 const { iconRender } = useIconRender();
 
@@ -47,7 +50,7 @@ function handleSelect(key: EnumDropDownkey) {
       positiveText: '确定',
       negativeText: '取消',
       onPositiveClick: () => {
-        // TODO
+        auth.resetAuthStore();
       },
     });
   }

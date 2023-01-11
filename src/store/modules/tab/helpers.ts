@@ -75,3 +75,8 @@ export function isInTabRoutes(tabs: App.AdminTabRoute[], fullPath: string) {
 export function getIndexInTabRoutes(tabs: App.AdminTabRoute[], fullPath: string) {
   return tabs.findIndex((tab) => tab.fullPath === fullPath);
 }
+
+/** 清空多页签数据 */
+export function clearTabRoutes() {
+  localStg.remove('multiTabRoutes');
+}

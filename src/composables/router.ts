@@ -35,6 +35,20 @@ export function useRouterPush(inSetup = true) {
   }
 
   /**
+   * 跳转登录页面
+   * @param redirect - 重定向地址(登录成功后跳转的地址),默认undefined表示取当前地址为重定向地址
+   */
+  function toLogin(redirect?: string) {
+    const routeLocation: RouteLocationRaw = {
+      name: routeName('login'),
+    };
+    if (redirect) {
+      Object.assign(routeLocation, { query: { redirect } });
+    }
+    routerPush(routeLocation);
+  }
+
+  /**
    * 跳转首页
    * @param newTab - 在新的浏览器标签打开
    */
@@ -44,6 +58,7 @@ export function useRouterPush(inSetup = true) {
 
   return {
     toHome,
+    toLogin,
     routerPush,
     toLoginRedirect,
   };
