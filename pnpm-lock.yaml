@@ -5,6 +5,7 @@ specifiers:
   '@commitlint/config-conventional': ^17.3.0
   '@iconify/json': ^2.1.148
   '@iconify/vue': ^4.0.2
+  '@types/crypto-js': ^4.1.1
   '@types/lodash-es': ^4.17.6
   '@typescript-eslint/eslint-plugin': ^5.45.0
   '@typescript-eslint/parser': ^5.45.0
@@ -57,6 +58,7 @@ devDependencies:
   '@commitlint/config-conventional': 17.3.0
   '@iconify/json': 2.1.148
   '@iconify/vue': 4.0.2_vue@3.2.45
+  '@types/crypto-js': 4.1.1
   '@types/lodash-es': 4.17.6
   '@typescript-eslint/eslint-plugin': 5.45.0_czs5uoqkd3podpy6vgtsxfc7au
   '@typescript-eslint/parser': 5.45.0_hsf322ms6xhhd4b5ne6lb74y4a
@@ -542,6 +544,10 @@ packages:
 
   /@tsconfig/node16/1.0.3:
     resolution: {integrity: sha512-yOlFc+7UtL/89t2ZhjPvvB/DeAr3r+Dq58IgzsFkOAvVC6NMJXmCGjbptdXdR9qsX7pKcTL+s87FtYREi2dEEQ==}
+    dev: true
+
+  /@types/crypto-js/4.1.1:
+    resolution: {integrity: sha512-BG7fQKZ689HIoc5h+6D2Dgq1fABRa0RbBWKBd9SP/MVRVXROflpm5fhwyATX5duFmbStzyzyycPB8qUYKDH3NA==}
     dev: true
 
   /@types/estree/1.0.0:
