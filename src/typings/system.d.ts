@@ -12,6 +12,8 @@ declare namespace Theme {
     sider: Sider;
     /** 标签页样式 */
     tab: Tab;
+    /** 底部样式 */
+    footer: Footer;
   }
 
   /** 其他主题颜色 */
@@ -48,6 +50,14 @@ declare namespace Theme {
     height: number;
     /** 开启多页签缓存 */
     isCache: boolean;
+  }
+
+  /** 底部样式 */
+  interface Footer {
+    /** 底部高度 */
+    height: number;
+    /* 底部是否可见 */
+    visible: boolean;
   }
 }
 

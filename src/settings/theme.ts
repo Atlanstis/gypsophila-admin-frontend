@@ -18,6 +18,10 @@ const defaultThemeSetting: Theme.Setting = {
     height: 44,
     isCache: true,
   },
+  footer: {
+    visible: true,
+    height: 48,
+  },
 };
 
 export const themeSetting = defaultThemeSetting;
