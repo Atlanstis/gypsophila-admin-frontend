@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia';
+import { judgeInMobile } from './helper';
 
 interface AppState {
   /** 平台名称 */
@@ -8,12 +9,17 @@ interface AppState {
    * true：收起。
    */
   siderCollapse: boolean;
+  /** 是否处于移动设备环境 */
+  isInMobile: boolean;
 }
+
+const isInMobile = judgeInMobile();
 
 export const useAppStore = defineStore('app-store', {
   state: (): AppState => ({
     name: 'Gypsophila.',
-    siderCollapse: false,
+    siderCollapse: isInMobile,
+    isInMobile,
   }),
 
   actions: {

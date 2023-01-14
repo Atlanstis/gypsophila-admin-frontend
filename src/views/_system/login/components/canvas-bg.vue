@@ -5,6 +5,7 @@
 <script lang="ts" setup>
 import Perlin from 'perlin.js';
 import { ref, onMounted, Ref, onUnmounted } from 'vue';
+import { useAppStore } from '@/store';
 
 defineOptions({
   name: 'CanvasBackground',
@@ -96,13 +97,18 @@ function isCanvas(canvas: Ref<HTMLCanvasElement | undefined>): canvas is Ref<HTM
 function isCtx(ctx: CanvasRenderingContext2D | null): ctx is CanvasRenderingContext2D {
   return !!ctx;
 }
+
+const app = useAppStore();
+
 const canvas = ref<HTMLCanvasElement>();
 
 /** 动画帧 Id */
 let frameIndex: number;
 
 let resizeBackup: () => void;
-let mousemoveBackup: (e: MouseEvent) => void;
+let moveBackup: (e: MouseEvent) => void;
+let touchMoveBackup: (e: TouchEvent) => void;
+
 function init() {
   if (!isCanvas(canvas)) return;
   const ctx = canvas.value.getContext('2d');
@@ -196,6 +202,10 @@ function init() {
     mouse.x = e.pageX;
     mouse.y = e.pageY;
   };
+  const pointerTouchMove = (e: TouchEvent) => {
+    mouse.x = e.touches[0].pageX;
+    mouse.y = e.touches[0].pageY;
+  };
 
   let mouse = new V2(window.innerWidth / 2, window.innerHeight / 2);
   let emitter = new V2(window.innerWidth / 2, window.innerHeight / 2);
@@ -204,9 +214,15 @@ function init() {
   frameIndex = requestAnimationFrame(animate);
 
   window.addEventListener('resize', resize);
-  window.addEventListener('mousemove', pointerMove);
+
+  if (!app.isInMobile) {
+    window.addEventListener('mousemove', pointerMove);
+    moveBackup = pointerMove;
+  } else {
+    window.addEventListener('touchmove', pointerTouchMove);
+    touchMoveBackup = pointerTouchMove;
+  }
   resizeBackup = resize;
-  mousemoveBackup = pointerMove;
 }
 
 onMounted(() => {
@@ -216,7 +232,11 @@ onMounted(() => {
 onUnmounted(() => {
   cancelAnimationFrame(frameIndex);
   window.removeEventListener('resize', resizeBackup);
-  window.removeEventListener('mousemove', mousemoveBackup);
+  if (!app.isInMobile) {
+    window.removeEventListener('mousemove', moveBackup);
+  } else {
+    window.removeEventListener('touchmove', touchMoveBackup);
+  }
 });
 </script>
 

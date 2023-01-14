@@ -1,7 +1,7 @@
 <template>
   <div class="basic-tab h-full w-full flex-y-center pl-16px">
     <div ref="bsWrapper" class="flex-1-hidden h-full">
-      <BetterScroll ref="bsScroll" :options="{ scrollX: true, scrollY: false, click: false }">
+      <BetterScroll ref="bsScroll" :options="{ scrollX: true, scrollY: false, click: canClick }">
         <TabDetail @scroll="handleScroll" />
       </BetterScroll>
     </div>
@@ -13,7 +13,7 @@
 import { ReloadButton, TabDetail } from './components';
 import { ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
-import { useTabStore } from '@/store';
+import { useTabStore, useAppStore } from '@/store';
 import { useElementBounding } from '@vueuse/core';
 
 defineOptions({
@@ -22,6 +22,9 @@ defineOptions({
 
 const tab = useTabStore();
 const route = useRoute();
+const app = useAppStore();
+
+const canClick = app.isInMobile;
 
 const bsWrapper = ref<HTMLElement>();
 const { width: bsWrapperWidth, left: bsWrapperLeft } = useElementBounding(bsWrapper);

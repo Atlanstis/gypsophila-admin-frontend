@@ -2,7 +2,7 @@
   <n-dropdown trigger="hover" :options="options" @select="handleSelect">
     <HoverContainer class="px-12px">
       <NAvatar round>Name</NAvatar>
-      <span class="pl-8px text-16px font-medium">UserName</span>
+      <span v-if="!app.isInMobile" class="pl-8px text-16px font-medium">UserName</span>
     </HoverContainer>
   </n-dropdown>
 </template>
@@ -10,13 +10,14 @@
 <script lang="ts" setup>
 import type { DropdownOption } from 'naive-ui';
 import { useIconRender } from '@/composables';
-import { useAuthStore } from '@/store';
+import { useAppStore, useAuthStore } from '@/store';
 
 defineOptions({
   name: 'UserAvatar',
 });
 
 const auth = useAuthStore();
+const app = useAppStore();
 
 const { iconRender } = useIconRender();
 
